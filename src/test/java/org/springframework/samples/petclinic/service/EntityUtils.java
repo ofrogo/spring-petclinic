@@ -37,7 +37,7 @@ public abstract class EntityUtils {
 	 * @param entities the collection to search
 	 * @param entityClass the entity class to look up
 	 * @param entityId the entity id to look up
-	 * @return the found entity
+	 * @return the found entity +_+
 	 * @throws ObjectRetrievalFailureException if the entity was not found
 	 */
 	public static <T extends BaseEntity> T getById(Collection<T> entities, Class<T> entityClass, int entityId)
