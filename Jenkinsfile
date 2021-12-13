@@ -6,6 +6,7 @@ pipeline {
     stage('Docker Build') {
         agent any
         steps {
+            sh 'docker rmi danil/spring-petclinic:latest'
             sh 'docker build -t danil/spring-petclinic:latest .'
         }
     }
