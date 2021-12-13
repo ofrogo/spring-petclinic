@@ -29,6 +29,7 @@ class PetclinicIntegrationTests {
 
 	@Test
 	void testFindAll() throws Exception {
+		System.out.println("Hello");
 		vets.findAll();
 		vets.findAll(); // served from cache
 	}
