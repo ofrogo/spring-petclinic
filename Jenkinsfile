@@ -4,7 +4,7 @@ pipeline {
   agent any
   environment {
       TAG = VersionNumber(versionNumberString: '${BUILDS_ALL_TIME}')
-      OLD_TAG = TAG - 1
+      OLD_TAG = VersionNumber(versionNumberString: '${BUILDS_ALL_TIME}' - 1)
   }
   stages {
     stage('Build & Test') {
