@@ -6,11 +6,15 @@ pipeline {
      TAG = VersionNumber(versionNumberString: '${BUILDS_ALL_TIME}')
   }
   stages {
-    stage('Docker Build') {
-        agent any
-        steps {
-            sh 'docker build -t danil/spring-petclinic:$TAG .'
+    stage('Test') {
+            steps {
+                sh './mvnw test'
+            }
         }
+    stage('Build') {
+      steps {
+         sh './mvnw package'
+      }
     }
     stage('Docker run') {
         agent any
