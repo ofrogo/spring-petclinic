@@ -2,10 +2,6 @@
 
 pipeline {
   agent any
-  environment {
-      TAG = VersionNumber(versionNumberString: '${BUILDS_ALL_TIME}')
-      OLD_TAG = VersionNumber(versionNumberString: '${BUILDS_ALL_TIME}' - 1)
-  }
   stages {
     stage('Build & Test') {
       steps {
@@ -17,7 +13,7 @@ pipeline {
             branch 'main'
         }
         steps {
-            sh 'docker build -t danil/spring-petclinic:$TAG .'
+            sh 'docker build -t danil/spring-petclinic .'
         }
     }
     stage('Docker run') {
@@ -25,8 +21,7 @@ pipeline {
             branch 'main'
         }
         steps {
-            sh 'docker stop $(docker ps -q --filter ancestor=danil/spring-petclinic:$OLD_TAG)'
-            sh 'docker run -d -p 8081:8080 danil/spring-petclinic:$TAG'
+            sh 'docker run -d -p 8081:8080 danil/spring-petclinic'
         }
     }
   }
