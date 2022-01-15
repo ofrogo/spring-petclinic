@@ -21,7 +21,7 @@ pipeline {
             branch 'main'
         }
         steps {
-            sh 'docker build danil/spring-petclinic:$TAG .'
+            sh 'docker build -t danil/spring-petclinic:$TAG .'
         }
     }
     stage('Docker run') {
