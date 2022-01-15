@@ -29,7 +29,6 @@ pipeline {
             branch 'main'
         }
         steps {
-            sh 'docker stop $(docker ps -q --filter ancestor=danil/spring-petclinic)'
             sh 'docker run -d -p 8081:8080 danil/spring-petclinic:$TAG'
         }
     }
