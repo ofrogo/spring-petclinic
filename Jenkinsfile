@@ -21,7 +21,7 @@ pipeline {
             branch 'main'
         }
         steps {
-            //sh 'docker ps -q --filter ancestor=danil/spring-petclinic:1 | xargs docker stop'
+            sh 'docker ps -q --filter publish=8081 | xargs docker stop'
             sh 'docker run -d -p 8081:8080 danil/spring-petclinic:1'
         }
     }
