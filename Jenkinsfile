@@ -6,14 +6,8 @@ pipeline {
      TAG = VersionNumber(versionNumberString: '${BUILDS_ALL_TIME}')
   }
   stages {
-    stage('Test') {
-            steps {
-                sh './mvnw test'
-            }
-        }
-    stage('Build') {
+    stage('Build & Test') {
       steps {
-          echo 'Strat building....'
           sh './mvnw package'
       }
     }
