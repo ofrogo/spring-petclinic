@@ -13,7 +13,8 @@ pipeline {
         }
     stage('Build') {
       steps {
-         sh './mvnw package'
+          echo 'Strat building....'
+          sh './mvnw package'
       }
     }
     stage('Docker build') {
