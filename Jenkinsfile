@@ -1,7 +1,7 @@
 #!groovy
 
 pipeline {
-  agent none
+  agent any
   environment {
      TAG = VersionNumber(versionNumberString: '${BUILDS_ALL_TIME}')
   }
@@ -17,7 +17,6 @@ pipeline {
       }
     }
     stage('Docker run') {
-        agent any
         when {
             branch 'main'
         }
